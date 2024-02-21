@@ -9,7 +9,7 @@ function OrderList() {
     const userName = localStorage.getItem('userName')
 
     useEffect(() => {
-        axios.get(`/api/myOrders/${userName}`)
+        axios.get(`https://grull-task-aprk.vercel.app/api/myOrders/${userName}`)
             .then((response) => { setMyOrders(response.data.apiData); })
             .catch((error) => { console.log(error); })
     }, [userName])

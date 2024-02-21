@@ -24,7 +24,7 @@ function Addproduct() {
         formValues.append('quantity', quantity)
         formValues.append('image', image)
 
-        axios.post('/api/addData', formValues)
+        axios.post('https://grull-task-aprk.vercel.app/api/addData', formValues)
             .then((response) => { setMessage(response.data.message) })
             .catch((error) => { setMessage(error.response.data.message) })
     }

@@ -15,7 +15,7 @@ function Favourites() {
 
     useEffect(() => {
         if (Username === userName) {
-            axios.post('/api/cart', { ids: Object.keys(fav.favItems) })
+            axios.post('https://grull-task-aprk.vercel.app/api/cart', { ids: Object.keys(fav.favItems) })
                 .then((response) => { setFavData(response.data.apiData) })
                 .catch((error) => { console.log(error.response.data.message) })
         } else {

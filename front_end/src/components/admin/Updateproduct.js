@@ -18,7 +18,7 @@ function Updateproduct() {
     const [message, setMessage] = useState('')
 
     useEffect(() => {
-        axios.get(`/api/singleData/${id}`)
+        axios.get(`https://grull-task-aprk.vercel.app/api/singleData/${id}`)
             .then((response) => {
                 setName(response.data.apiData.name)
                 setDesc(response.data.apiData.desc)
@@ -44,7 +44,7 @@ function Updateproduct() {
         formValue.append('status', status)
         formValue.append('img', img)
 
-        axios.put(`/api/updateProducts/${id}`, formValue)
+        axios.put(`https://grull-task-aprk.vercel.app/api/updateProducts/${id}`, formValue)
             .then((response) => { setMessage(response.data.message) })
             .catch((error) => { setMessage(error.response.data.message) })
     }

@@ -11,7 +11,7 @@ function Dashboard() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get('/api/allData')
+        axios.get('https://grull-task-aprk.vercel.app/api/allData')
             .then((response) => { setProductData(response.data.apidata) })
             .catch((error) => { setMessage(error.response.data.message) })
     }, [])
@@ -19,7 +19,7 @@ function Dashboard() {
     function handleDelete(id) {
         console.log(id);
         navigate("/dashboard")
-        axios.post(`/api/delete/${id}`)
+        axios.post(`https://grull-task-aprk.vercel.app/api/delete/${id}`)
             .then((response) => { setMessage(response.data.message) })
             .catch((error) => { setMessage(error.response.data.message) })
 

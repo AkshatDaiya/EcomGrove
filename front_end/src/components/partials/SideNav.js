@@ -7,7 +7,7 @@ function SideNav() {
     const { fav, setCategoryData } = useContext(ContextApi)
     const navigate = useNavigate()
     const userName = localStorage.getItem('userName')
-    console.log(userName);
+
     let Username;
     if (fav) {
         Username = fav.userName.userName
@@ -24,7 +24,7 @@ function SideNav() {
     }
 
     const handleCategory = (value) => {
-        axios.post('/api/category', { category: value })
+        axios.post('https://grull-task-aprk.vercel.app/api/category', { category: value })
             .then((response) => { setCategoryData(response.data.apidata) })
             .catch((error) => { console.log(error.response.data.message) })
     }

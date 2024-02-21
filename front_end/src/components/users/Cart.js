@@ -16,7 +16,7 @@ function Cart() {
 
     useEffect(() => {
         if (Username === userName) {
-            axios.post('/api/cart', { ids: Object.keys(cart.items) })
+            axios.post('https://grull-task-aprk.vercel.app/api/cart', { ids: Object.keys(cart.items) })
                 .then((response) => { setCartData(response.data.apiData) })
                 .catch((error) => { setMessage(error.response.data.message) })
         } else {
@@ -68,7 +68,7 @@ function Cart() {
 
     const handleCheckOut = (e) => {
         let userName = localStorage.getItem('userName')
-        axios.post(`/api/cartData/${userName}`, cart)
+        axios.post(`https://grull-task-aprk.vercel.app/api/cartData/${userName}`, cart)
             .then((response) => { setMessage(response.data.message) })
             .catch((error) => { console.log(error.response) })
     }

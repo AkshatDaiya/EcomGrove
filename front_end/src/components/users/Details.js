@@ -13,7 +13,7 @@ function Details() {
     const [data, setData] = useState();
 
     useEffect(() => {
-        axios.get(`/api/singleData/${id}`)
+        axios.get(`https://grull-task-aprk.vercel.app/api/singleData/${id}`)
             .then((response) => { setData(response.data.apiData) })
             .catch((error) => { console.log(error) })
     }, [id])
