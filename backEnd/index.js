@@ -16,6 +16,10 @@ const Router = require('./routers/api');
 //     }
 // ))
 
+app.get('/', (req, res) => {
+  res.send('hello');
+});
+
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
