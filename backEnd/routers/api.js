@@ -6,7 +6,9 @@ const upload = require('../helper/multer');
 
 router.post('/reg', regc.register)
 router.post('/login', regc.loginCheck)
-router.post('/',()=>"hello"
+router.get('/',(req,res)=>{
+  res.send("hello")
+}
 )
 router.get('/allData', verifyUser, productc.allData)
 router.post('/addData', verifyUser, upload.single('image'), productc.addFormData)
