@@ -26,7 +26,7 @@ function Products() {
     }
 
     useEffect(() => {
-        axios.get('https://grull-task-aprk.vercel.app/api/produstInStock')
+        axios.get('https://grull-task.vercel.app/api/produstInStock')
             .then((response) => {
                 if (categoryData === undefined) {
                     setProducts(response.data.apiData)
