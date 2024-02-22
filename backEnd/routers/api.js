@@ -10,7 +10,7 @@ router.get('/',(req,res)=>{
   res.send("hello")
 }
 )
-router.get('/allData', verifyUser, productc.allData)
+router.get('/allData', productc.allData)
 router.post('/addData', verifyUser, upload.single('image'), productc.addFormData)
 router.post('/category', verifyUser, productc.category)
 router.get('/singleData/:id', verifyUser, productc.updateSingleData)
