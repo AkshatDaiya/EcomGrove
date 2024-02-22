@@ -13,7 +13,12 @@ function SideNav() {
         Username = fav.userName.userName
     }
 
+    function removeCookie(name) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    }
+
     const handleLogOut = (e) => {
+        removeCookie('token');
         localStorage.removeItem('userName')
         navigate('/')
     }
