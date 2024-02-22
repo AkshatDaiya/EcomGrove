@@ -16,7 +16,8 @@ This is an e-commerce website project built using the MERN stack (MongoDB, Expre
 - **Shopping Cart**: Users can add products to their shopping cart and manage the cart contents.
 - **Checkout Process**: Users can proceed to checkout, enter shipping details, and place orders securely.
 - **Order History**: Users can view their order history and track the status of their orders.
-- **Admin Dashboard**: Admin users have access to a dashboard where they can manage products, categories, and orders.
+- **Admin Dashboard**: Admin users have access to a dashboard where they can manage products.
+- **Admin Credentials**: Email:=> admin@gmail.com Pass:=> admin ( after Login successfully you will see a page called Dashboard in sideNav)
 - **Responsive Design**: The website is fully responsive, ensuring a seamless experience across different devices.
 
 ## Installation
