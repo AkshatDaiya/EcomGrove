@@ -26,7 +26,7 @@ function Products() {
     }
 
     useEffect(() => {
-        axios.get('https://grull-task-aprk.vercel.app/api/produstInStock')
+        axios.get('/api/produstInStock')
             .then((response) => {
                 if (categoryData === undefined) {
                     setProducts(response.data.apiData)
@@ -38,7 +38,7 @@ function Products() {
     }, [categoryData])
 
     const handleSort = (value) => {
-        axios.post('https://grull-task-aprk.vercel.app/api/sortingList', { value })
+        axios.post('/api/sortingList', { value })
             .then((response) => { setProducts(response.data.apidata) })
             .catch((error) => { console.log(error) })
     }

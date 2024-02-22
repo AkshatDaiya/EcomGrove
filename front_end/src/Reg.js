@@ -12,7 +12,7 @@ function Reg() {
   const handleSubmit = (e) => {
     e.preventDefault()
     const regRecord = { username, email, password }
-    axios.post('https://grull-task-aprk.vercel.app/api/reg', { regRecord })
+    axios.post('/api/reg', { regRecord })
       .then((response) => {
         if (response.data.status === 201) {
           navigate('/')
