@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
   res.send('hello');
 });
 
-const allowedOrigins = ['https://grull-task.vercel.app', 'https://grull-task.vercel.app'];
+const allowedOrigins = ['https://grull-task-aprk.vercel.app', 'https://grull-task-aprk.vercel.app'];
 
 app.use(cors({
   origin: function (origin, callback) {
