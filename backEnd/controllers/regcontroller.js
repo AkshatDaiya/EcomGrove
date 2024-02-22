@@ -38,7 +38,7 @@ exports.loginCheck = async (req, res) => {
             if (record.password === password) {
                 const token = jwt.sign({ _id: record._id, email: record }, process.env.SESSION_SECRET, { expiresIn: '4h' })
 
-                res.cookie('token', token);
+                res.cookie('token', token, { httpOnly: true }).sendStatus(200);
 
                 res.status(200).json({
                     status: 200,
