@@ -20,7 +20,18 @@ app.get('/', (req, res) => {
   res.send('hello');
 });
 
-app.use(cors({ origin: ["https://grull-task.vercel.app"] }))
+const allowedOrigins = ['https://grull-task.vercel.app', 'https://grull-task.vercel.app'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}))
+
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
