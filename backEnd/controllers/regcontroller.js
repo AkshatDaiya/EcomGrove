@@ -1,5 +1,4 @@
 const Reg = require('../models/reg');
-const jwt = require('jsonwebtoken');
 
 
 exports.register = async (req, res) => {
@@ -36,10 +35,6 @@ exports.loginCheck = async (req, res) => {
         const record = await Reg.findOne({ email: email })
         if (record !== null) {
             if (record.password === password) {
-                const token = jwt.sign({ _id: record._id, email: record }, process.env.SESSION_SECRET, { expiresIn: '4h' })
-
-                res.cookie('token', token, { httpOnly: true }).sendStatus(200);
-
                 res.status(200).json({
                     status: 200,
                     apiData: record.username
