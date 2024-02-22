@@ -6,11 +6,11 @@ const upload = require('../helper/multer');
 
 router.post('/reg', regc.register)
 router.post('/login', regc.loginCheck)
-router.get('/',(req,res)=>{
+router.get('/', (req, res) => {
   res.send("hello")
 }
 )
-router.get('/allData', productc.allData)
+router.get('/allData', verifyUser, productc.allData)
 router.post('/addData', verifyUser, upload.single('image'), productc.addFormData)
 router.post('/category', verifyUser, productc.category)
 router.get('/singleData/:id', verifyUser, productc.updateSingleData)
