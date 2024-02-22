@@ -10,17 +10,17 @@ router.get('/', (req, res) => {
   res.send("hello")
 }
 )
-router.get('/allData', verifyUser, productc.allData)
-router.post('/addData', verifyUser, upload.single('image'), productc.addFormData)
-router.post('/category', verifyUser, productc.category)
-router.get('/singleData/:id', verifyUser, productc.updateSingleData)
-router.put('/updateProducts/:id', verifyUser, upload.single('img'), productc.updateProducts)
-router.post('/delete/:id', verifyUser, productc.deleteProducts)
-router.get('/produstInStock', verifyUser, productc.produstInStock)
-router.post('/sortingList', verifyUser, productc.sortingList)
-router.post('/cart', verifyUser, productc.cart)
-router.post('/cartData/:userName', verifyUser, productc.cartData)
-router.get('/myorders/:userName', verifyUser, productc.myOrders)
+router.get('/allData', productc.allData)
+router.post('/addData', upload.single('image'), productc.addFormData)
+router.post('/category', productc.category)
+router.get('/singleData/:id', productc.updateSingleData)
+router.put('/updateProducts/:id', upload.single('img'), productc.updateProducts)
+router.post('/delete/:id', productc.deleteProducts)
+router.get('/produstInStock', productc.produstInStock)
+router.post('/sortingList', productc.sortingList)
+router.post('/cart', productc.cart)
+router.post('/cartData/:userName', productc.cartData)
+router.get('/myorders/:userName', productc.myOrders)
 
 
 module.exports = router
