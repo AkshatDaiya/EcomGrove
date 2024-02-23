@@ -250,4 +250,9 @@
   .details img {
     width: 500px;
   }
+
+  .MainLoginPage .image,
+  .MainRegPage .image {
+    display: none;
+  }
 }

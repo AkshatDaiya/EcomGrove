@@ -23,7 +23,7 @@ function Login() {
 
     return (
         <div>
-            <div className="row w-100 m-0" style={{ height: "37.96rem" }}>
+            <div className="row w-100 m-0 MainLoginPage" style={{ height: "37.96rem" }}>
                 <div className="col-md-5 login">
                     <div className="logo">
                         <h4>myLOGO</h4>
