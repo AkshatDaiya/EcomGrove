@@ -42,31 +42,31 @@ function SideNav() {
             {userName === "Admin" ? (
                 <div className="dashboard py-2">
                     <Link to={'/dashboard'} className='text-decoration-none text-dark'>
-                        <span className='fs-5'><i className="fa-solid fa-gauge-high px-2"></i>Dashboard</span>
+                        <span className='fs-5'><i className="fa-solid fa-gauge-high px-2"></i><span className="pageName">Dashboard</span></span>
                     </Link>
                 </div>
             ) : (<></>)}
             <div className="products py-2">
                 <Link to={'/products'} className='text-decoration-none text-dark'>
-                    <span className='fs-5'><i className="fa-solid fa-box px-2"></i><span>Products</span></span>
+                    <span className='fs-5'><i className="fa-solid fa-box px-2"></i><span className="pageName">Products</span></span>
                 </Link>
             </div>
             {Username && Username === userName ? (
                 <div className="favourites py-2">
                     <Link to={'/favourites'} className='text-decoration-none text-dark'>
-                        <span className='fs-5'><i className="fa-regular fa-heart px-2"></i><span>Favourites {total}</span></span>
+                        <span className='fs-5'><i className="fa-regular fa-heart px-2"></i><span className="pageName">Favourites {total}</span></span>
                     </Link>
                 </div>
             ) : (
                 <div className="favourites py-2" style={{ opacity: 0.5, pointerEvents: 'none' }}>
                     <Link to={'/favourites'} className='text-decoration-none text-dark'>
-                        <span className='fs-5'><i className="fa-regular fa-heart px-2"></i><span>Favourites</span></span>
+                        <span className='fs-5'><i className="fa-regular fa-heart px-2"></i><span className="pageName">Favourites</span></span>
                     </Link>
                 </div>
             )}
             <div className="orderList py-2">
                 <Link to={'/orderList'} className='text-decoration-none text-dark'>
-                    <span className='fs-5'><i className="fa-solid fa-list-check px-2"></i><span>Order List</span></span>
+                    <span className='fs-5'><i className="fa-solid fa-list-check px-2"></i><span className="pageName">Order List</span></span>
                 </Link>
             </div>
 
