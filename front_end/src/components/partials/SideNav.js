@@ -48,25 +48,25 @@ function SideNav() {
             ) : (<></>)}
             <div className="products py-2">
                 <Link to={'/products'} className='text-decoration-none text-dark'>
-                    <span className='fs-5'><i className="fa-solid fa-box px-2"></i>Products</span>
+                    <span className='fs-5'><i className="fa-solid fa-box px-2"></i><span>Products</span></span>
                 </Link>
             </div>
             {Username && Username === userName ? (
                 <div className="favourites py-2">
                     <Link to={'/favourites'} className='text-decoration-none text-dark'>
-                        <span className='fs-5'><i className="fa-regular fa-heart px-2"></i>Favourites {total}</span>
+                        <span className='fs-5'><i className="fa-regular fa-heart px-2"></i><span>Favourites {total}</span></span>
                     </Link>
                 </div>
             ) : (
                 <div className="favourites py-2" style={{ opacity: 0.5, pointerEvents: 'none' }}>
                     <Link to={'/favourites'} className='text-decoration-none text-dark'>
-                        <span className='fs-5'><i className="fa-regular fa-heart px-2"></i>Favourites</span>
+                        <span className='fs-5'><i className="fa-regular fa-heart px-2"></i><span>Favourites</span></span>
                     </Link>
                 </div>
             )}
             <div className="orderList py-2">
                 <Link to={'/orderList'} className='text-decoration-none text-dark'>
-                    <span className='fs-5'><i className="fa-solid fa-list-check px-2"></i>Order List</span>
+                    <span className='fs-5'><i className="fa-solid fa-list-check px-2"></i><span>Order List</span></span>
                 </Link>
             </div>
 
