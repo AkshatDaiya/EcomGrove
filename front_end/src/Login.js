@@ -16,7 +16,7 @@ function Login() {
             .then((response) => {
                 if (response.data.status === 200) {
                     localStorage.setItem('userName', response.data.apiData)
-                    navigate('/products')
+                    navigate('/')
                     setIsBtnClicked(false)
                 }
             })

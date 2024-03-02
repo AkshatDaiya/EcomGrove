@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Navbar from '../partials/Navbar'
 import SideNav from '../partials/SideNav'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import ContextApi from '../../ContextApi'
 
@@ -11,6 +11,8 @@ function Products() {
     const userName = localStorage.getItem('userName')
     const [products, setProducts] = useState([])
     const [message, setMessage] = useState('')
+    const navigate = useNavigate()
+    
     const [select] = useState('');
     const [currentPage] = useState(1)
     const [postPerPage, setPostPerPage] = useState(9)
@@ -18,6 +20,12 @@ function Products() {
     const lastPostIndex = currentPage * postPerPage;
     const firstPostIndex = postPerPage - lastPostIndex
     const currontPost = products.slice(firstPostIndex, lastPostIndex)
+
+    useEffect(() => {
+        if (!userName) {
+            navigate('/login')
+        }
+    }, [userName, navigate])
 
     function handleLoadMore() {
         if (postPerPage < products.length) {

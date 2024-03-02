@@ -50,7 +50,7 @@ function Reg() {
           <hr />
           <h6 className='text-center'>Already have an account?</h6>
           <hr />
-          <Link to={'/'}>
+          <Link to={'/login'}>
             <button type="submit" className='form-control btn btn-outline-warning'>LOGIN</button>
           </Link>
         </div>
