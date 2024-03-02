@@ -3,6 +3,10 @@
   font-optical-sizing: auto;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .login,
 .reg {
   padding: 40px;
@@ -26,15 +30,15 @@
   transition: all 0.2s ease-in-out;
 }
 
+.login .loginForm button img,
+.reg .regForm button img {
+  width: 23px;
+}
+
 .login .loginForm button:hover,
 .reg .regForm button:hover {
   background-color: #fb5572;
   color: white;
-}
-
-.login .loginForm button img,
-.reg .regForm button img {
-  width: 23px;
 }
 
 .image {
@@ -42,13 +46,15 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  display: block;
+  width: 58.33%;
 }
 
 #header {
-  background-color: #dfbfbf;
   position: sticky;
   top: 0;
   z-index: 9999;
+  background-color: #dfbfbf;
 }
 
 .navbar .searchForm {
@@ -96,8 +102,9 @@
 }
 
 #body .row .PageList {
-  padding: 20px 5px 10px 20px;
-  background: #f3f3f38f;
+  padding: 10px 6px 0px 15px;
+  background: #f3f3f3;
+  transition: all 0.3s ease-in-out;
 }
 
 #body .logOut button {
@@ -124,6 +131,11 @@
   flex-wrap: wrap;
 }
 
+.clicked {
+  width: 0;
+  padding: 0 !important;
+}
+
 .PageList .category div button {
   margin: 5px 4px;
   border: 1px solid #fb5572;
@@ -141,15 +153,18 @@
 .MainPage {
   overflow-y: auto;
   padding: 20px;
+  position: relative;
+  transition: all 0.2s ease-in-out;
 }
 
-.MainPage .product {
+.product {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   overflow-y: auto;
   padding: 15px 0;
   justify-content: center;
+  transition: all 0.2s ease-in-out;
 }
 
 .MainPage .emptyImg {
@@ -204,14 +219,6 @@
   justify-content: center;
 }
 
-.details .gifSetting {
-  height: 36vh;
-  width: 90%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .Dashboard .deleteBTN,
 .Favourites .removeBTN {
   border: none;
@@ -253,35 +260,6 @@
   outline: 1px solid;
 }
 
-@media only screen and (max-width: 750px) {
-  .navbar {
-    flex-direction: column;
-  }
-
-  .navbar .searchForm input {
-    width: 20rem;
-  }
-
-  .details {
-    flex-direction: column;
-  }
-
-  .details img {
-    width: 500px;
-  }
-
-  .MainLoginPage .image,
-  .MainRegPage .image {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 1280px) {
-  .PageList div .pageName {
-    font-size: large;
-  }
-}
-
 @media only screen and (max-width: 1140px) {
   .PageList .pageName {
     font-size: medium;
@@ -299,6 +277,7 @@
   }
 
 }
+
 
 @media only screen and (max-width: 750px) {
   .navbar {
