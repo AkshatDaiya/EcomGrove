@@ -5,6 +5,7 @@ import axios from 'axios'
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isBtnClicked, setIsBtnClicked] = useState(false);
     const [message, setMessage] = useState("");
     const navigate = useNavigate()
 
@@ -16,9 +17,11 @@ function Login() {
                 if (response.data.status === 200) {
                     localStorage.setItem('userName', response.data.apiData)
                     navigate('/products')
+                    setIsBtnClicked(false)
                 }
             })
             .catch((error) => { setMessage(error.response.data.message) })
+        setIsBtnClicked(true)
     }
 
     return (
@@ -39,7 +42,7 @@ function Login() {
                         <label htmlFor="">Password</label>
                         <input type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} className='form-control mb-4' autoComplete='current-password' required />
 
-                        <button type="submit" className='form-control'>LOGIN</button>
+                        <button type="submit" className='form-control'>{isBtnClicked ? (<img src='./Rolling.gif' alt=''></img>) : "LOGIN"}</button>
                     </form>
                     <hr />
                     <h6 className='text-center'>Don't have Registered account yet?</h6>
