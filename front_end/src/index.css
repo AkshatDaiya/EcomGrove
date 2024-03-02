@@ -46,6 +46,9 @@
 
 #header {
   background-color: #dfbfbf;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
 }
 
 .navbar .searchForm {
@@ -276,5 +279,51 @@
 @media only screen and (max-width: 1280px) {
   .PageList div .pageName {
     font-size: large;
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+  .PageList .pageName {
+    font-size: medium;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #body .row .PageList {
+    position: relative;
+    z-index: 1;
+  }
+
+  .PageList .pageName {
+    font-size: small;
+  }
+
+}
+
+@media only screen and (max-width: 750px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  #body .row .PageList {
+    position: relative;
+    z-index: 1;
+  }
+
+  .navbar .searchForm input {
+    width: 20rem;
+  }
+
+  .details {
+    flex-direction: column;
+  }
+
+  .details img {
+    width: 500px;
+  }
+
+  .mainLoginPage .image,
+  .mainRegPage .image {
+    display: none;
   }
 }
