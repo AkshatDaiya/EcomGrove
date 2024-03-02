@@ -41,7 +41,7 @@ function Details() {
         }
         setCart(_cart)
     }
-    
+
     return (
         <div>
             <header id='header'>
@@ -82,7 +82,7 @@ function Details() {
                                 </>
                             ) : (
                                 <div className='gifSetting'>
-                                    <img src="https://icons8.com/preloaders/preloaders/1493/Settings.gif" alt="Animation" />
+                                    <img src="../Twyn.gif" alt="Animation" />
                                 </div>
                             )}
                         </div>

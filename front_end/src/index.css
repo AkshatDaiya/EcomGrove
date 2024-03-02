@@ -190,6 +190,17 @@
   align-items: center;
 }
 
+.product .gifSetting,
+.details .gifSetting {
+  height: 302px;
+  width: 1100px;
+  border-radius: 50%;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
 .details .gifSetting {
   height: 36vh;
   width: 90%;

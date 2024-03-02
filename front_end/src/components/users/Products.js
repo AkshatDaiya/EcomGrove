@@ -12,7 +12,7 @@ function Products() {
     const [products, setProducts] = useState([])
     const [message, setMessage] = useState('')
     const navigate = useNavigate()
-    
+
     const [select] = useState('');
     const [currentPage] = useState(1)
     const [postPerPage, setPostPerPage] = useState(9)
@@ -139,7 +139,7 @@ function Products() {
                         </div>
                         <div className="product">
 
-                            {currontPost.map((data) => (
+                            {products.length > 0 ? currontPost.map((data) => (
                                 <motion.div
                                     whileHover="hover"
                                     variants={{
@@ -166,7 +166,11 @@ function Products() {
                                         </Link>
                                     </div>
                                 </motion.div>
-                            ))}
+                            )) : (
+                                <div className='gifSetting'>
+                                    <img src="../Twyn.gif" alt="Animation" />
+                                </div>
+                            )}
                         </div>
                         <div className="d-flex justify-content-center p-3">
                             {postPerPage >= products.length ? (<></>) : (
