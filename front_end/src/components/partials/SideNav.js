@@ -47,7 +47,7 @@ function SideNav() {
                 </div>
             ) : (<></>)}
             <div className="products py-2">
-                <Link to={'/products'} className='text-decoration-none text-dark'>
+                <Link to={'/'} className='text-decoration-none text-dark'>
                     <span className='fs-5'><i className="fa-solid fa-box px-2"></i><span className="pageName">Products</span></span>
                 </Link>
             </div>
