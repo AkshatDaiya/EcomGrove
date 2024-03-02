@@ -6,6 +6,7 @@ function Reg() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isBtnClicked, setIsBtnClicked] = useState(false);
   const [message, setMessage] = useState("");
   const navigate = useNavigate()
 
@@ -16,9 +17,11 @@ function Reg() {
       .then((response) => {
         if (response.data.status === 201) {
           navigate('/')
+          setIsBtnClicked(false)
         }
       })
       .catch((error) => { setMessage(error.response.data.message) })
+    setIsBtnClicked(true)
   }
 
   return (
@@ -42,7 +45,7 @@ function Reg() {
             <label htmlFor="">Password</label>
             <input type="password" className='form-control mb-4' value={password} onChange={(e) => { setPassword(e.target.value) }} autoComplete='current-password' required />
 
-            <button type="submit" className='form-control'>Register now</button>
+            <button type="submit" className='form-control'>{isBtnClicked ? (<img src='./Rolling.gif' alt=''></img>) : "Register now"}</button>
           </form>
           <hr />
           <h6 className='text-center'>Already have an account?</h6>

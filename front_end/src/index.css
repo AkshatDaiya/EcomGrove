@@ -32,6 +32,11 @@
   color: white;
 }
 
+.login .loginForm button img,
+.reg .regForm button img {
+  width: 23px;
+}
+
 .image {
   background: url('../public/loginIMG.png');
   background-position: center;
