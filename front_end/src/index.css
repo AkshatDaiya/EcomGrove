@@ -301,8 +301,7 @@ body {
     width: 500px;
   }
 
-  .mainLoginPage .image,
-  .mainRegPage .image {
+  .image {
     display: none;
   }
 }
