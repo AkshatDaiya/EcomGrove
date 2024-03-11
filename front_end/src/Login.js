@@ -29,7 +29,7 @@ function Login() {
             <div className="row w-100 m-0 MainLoginPage" style={{ height: "37.96rem" }}>
                 <div className="col-md-5 login">
                     <div className="logo">
-                        <h4>myLOGO</h4>
+                        <h4>EcomGrove</h4>
                     </div>
                     <form className='loginForm' onSubmit={(e) => { handleSubmit(e) }}>
                         <h3 className='mb-5'>Login to your account</h3>
