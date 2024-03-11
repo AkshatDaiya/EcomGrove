@@ -15,7 +15,7 @@ function Navbar() {
         <nav className='row w-100 d-flex'>
             <div className="col-md-12 navbar justify-content-around">
                 <div className="logo">
-                    <h3>myLOGO</h3>
+                    <h3>EcomGrove</h3>
                 </div>
                 <form className='searchForm' onSubmit={(e) => e.preventDefault()}>
                     <input type="text" placeholder='This Search Is Not Active...' className='form-label' />
