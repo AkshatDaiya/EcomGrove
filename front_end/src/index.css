@@ -26,6 +26,7 @@ body {
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
   transition: all 1s;
+  width: fit-content;
 }
 
 .login .logo h4:after,
