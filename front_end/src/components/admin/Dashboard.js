@@ -20,7 +20,11 @@ function Dashboard() {
         console.log(id);
         navigate("/dashboard")
         axios.post(`https://grull-task-aprk.vercel.app/api/delete/${id}`)
-            .then((response) => { setMessage(response.data.message) })
+            .then((response) => {
+                setMessage(response.data.message)
+                setProductData(prevProducts => prevProducts.filter(product => product._id !== id))
+                navigate("/dashboard");
+            })
             .catch((error) => { setMessage(error.response.data.message) })
 
     }

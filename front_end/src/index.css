@@ -255,6 +255,12 @@ body {
   align-items: center;
 }
 
+.details img {
+  height: 469px;
+  margin: 20px;
+  width: 500px;
+}
+
 .product .gifSetting,
 .details .gifSetting {
   height: 302px;
@@ -307,6 +313,12 @@ body {
   outline: 1px solid;
 }
 
+@media only screen and (max-width: 1200px) {
+  .details {
+    flex-direction: column;
+  }
+}
+
 @media only screen and (max-width: 1140px) {
   .PageList .pageName {
     font-size: medium;
@@ -342,10 +354,6 @@ body {
 
   .details {
     flex-direction: column;
-  }
-
-  .details img {
-    width: 500px;
   }
 
   .image {
