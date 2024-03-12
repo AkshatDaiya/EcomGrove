@@ -70,7 +70,7 @@ function Details() {
                         <div className="details">
                             {data ? (
                                 <>
-                                    <img src={`../${data.img}`} style={{ height: '250px', margin: "20px" }} alt="" />
+                                    <img src={`../${data.img}`} alt="" />
                                     <div className="detail">
                                         <h2>{data.name}</h2>
                                         <p>{data.desc}</p>
