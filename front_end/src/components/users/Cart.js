@@ -78,7 +78,7 @@ function Cart() {
             setMessage('')
             cart.items = ''
             cart.totalItems = ''
-            navigate('/products')
+            navigate('/')
         }
     }, 2000);
 
