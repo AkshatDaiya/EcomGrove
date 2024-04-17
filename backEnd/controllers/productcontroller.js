@@ -1,25 +1,35 @@
 const Product = require('../models/product');
 const CartM = require('../models/cart');
 
-exports.addFormData = (req, res) => {
+exports.addFormData = async (req, res) => {
     try {
-        const { productName, description, moreDetails, category, price, quantity } = req.body
-        const filename = req.file.filename
+        const { productName, description, moreDetails, category, price, quantity } = req.body;
+        const filename = req.file.filename;
+
         const record = new Product({
-            name: productName, desc: description, mdesc: moreDetails, category: category, price: price, img: filename, qty: quantity
-        })
-        record.save()
+            name: productName,
+            desc: description,
+            mdesc: moreDetails,
+            category: category,
+            price: price,
+            img: filename,
+            qty: quantity
+        });
+
+        await record.save();
+
         res.status(201).json({
             status: 201,
             message: 'Details Added Successfully'
-        })
+        });
     } catch (error) {
-        res.status(400).json({
-            status: 400,
-            message: error.message
-        })
+        console.error(error); // Log error to console for debugging
+        res.status(500).json({
+            status: 500,
+            message: 'Internal Server Error'
+        });
     }
-}
+};
 
 exports.allData = async (req, res) => {
     try {
@@ -130,7 +140,7 @@ exports.cartData = async (req, res) => {
     try {
         const { items } = req.body
         const userName = req.params.userName
-        
+
         for (let propt in items) {
             const record = await Product.findById(propt)
             const cartRecord = new CartM({
@@ -158,7 +168,7 @@ exports.myOrders = async (req, res) => {
     try {
         const userName = req.params.userName
         const record = await CartM.find({ userName: { $in: [userName] } }).sort({ pDate: -1 })
-        
+
         res.status(200).json({
             status: 200,
             apiData: record
