@@ -1,12 +1,36 @@
 const Product = require('../models/product');
 const CartM = require('../models/cart');
+const { initializeApp } = require('firebase/app');
+const { getStorage, ref, getDownloadURL, uploadBytesResumable } = require('firebase/storage');
+const config = require('../firebase/firebase.js');
 
-exports.addFormData = (req, res) => {
+// Initialize a firebase application
+initializeApp(config.firebaseConfig)
+
+// Initialize Cloud Storage and get ref to the service
+const storage = getStorage()
+
+exports.addFormData = async (req, res) => {
     try {
         const { productName, description, moreDetails, category, price, quantity } = req.body
-        const filename = req.file.filename
+
+        const storageRef = ref(storage, `files/${req.file.originalname + new Date()}`)
+
+        // Create file metadata including contentType
+        const metaData = {
+            contentType: req.file.mimetype
+        }
+
+        // Upload file in the bucket storage
+        const snapshot = await uploadBytesResumable(storageRef, req.file.buffer, metaData)
+
+        //Grab the public url
+        const downloadURL = await getDownloadURL(snapshot.ref)
+
+        console.log('File successfully uploaded....');
+
         const record = new Product({
-            name: productName, desc: description, mdesc: moreDetails, category: category, price: price, img: filename, qty: quantity
+            name: productName, desc: description, mdesc: moreDetails, category: category, price: price, img: downloadURL, qty: quantity
         })
         record.save()
         res.status(201).json({
@@ -130,7 +154,7 @@ exports.cartData = async (req, res) => {
     try {
         const { items } = req.body
         const userName = req.params.userName
-        
+
         for (let propt in items) {
             const record = await Product.findById(propt)
             const cartRecord = new CartM({
@@ -158,7 +182,7 @@ exports.myOrders = async (req, res) => {
     try {
         const userName = req.params.userName
         const record = await CartM.find({ userName: { $in: [userName] } }).sort({ pDate: -1 })
-        
+
         res.status(200).json({
             status: 200,
             apiData: record
