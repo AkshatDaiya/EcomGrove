@@ -9,12 +9,11 @@ const mongoose = require('mongoose');
 mongoose.connect(`${process.env.DB_URL}`)
 const Router = require('./routers/api');
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://grull-task.vercel.app");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  next();
-})
+app.use(cors({
+  origin: 'https://grull-task.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.get('/', (req, res) => {
   res.send('hello');
