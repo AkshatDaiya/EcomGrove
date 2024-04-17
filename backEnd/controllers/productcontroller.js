@@ -4,7 +4,10 @@ const CartM = require('../models/cart');
 exports.addFormData = async (req, res) => {
     try {
         const { productName, description, moreDetails, category, price, quantity } = req.body;
-        const filename = req.file.filename;
+        const { filename } = req.file;
+        if (!filename) {
+            return res.status(400).json({ error: "Filename is not found" });
+        }
 
         const record = new Product({
             name: productName,
