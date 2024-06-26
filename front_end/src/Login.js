@@ -11,9 +11,11 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsBtnClicked(true);
+
     const loginRecord = { email, password };
     axios
-      .post("https://grull-task-aprk.vercel.app/api/login", { loginRecord })
+      .post("https://grull-task-aprk.vercel.app/api/login", loginRecord)
       .then((response) => {
         if (response.data.status === 200) {
           localStorage.setItem("userName", response.data.apiData);
